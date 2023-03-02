@@ -13,11 +13,11 @@ const app = express();
 const postg = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
+    host : 'dpg-cg0e27m4dad93e22e7k0-a',
     port : 5432,
-    user : 'postgres',
-    password : 'Kakaka',
-    database : 'smart-brain'
+    user : 'smartbraindatabase_8d3f_user',
+    password : 'CvActlF4G0eyKcQ3XeiMyU4eF1I6g4Fj',
+    database : 'smartbraindatabase_8d3f'
   }
 });
 
