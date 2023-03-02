@@ -25,7 +25,7 @@ app.use(cors());
 app.use(express.json())
 
 
-app.get('/',(req,res)=>{ res.json()});
+app.get('/',(req,res)=>{ res.json("its wroking")});
 
 app.post('/signin', Signin.handleSignin(postg, bcrypt));
 
@@ -40,7 +40,7 @@ app.put('/imageUrl', Image.handleApiCall())
 const PORT = process.env.PORT;
 
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
 
 	console.log(`its working on localhost: ${ PORT }`)
 })
