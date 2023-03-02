@@ -5,7 +5,7 @@ const knex = require('knex');
 
 const Register = require('./controllers/Register');
 const Signin = require('./controllers/Signin');
-const Profile = require('./controllers/profile');
+const Profile = require('./controllers/Profile');
 const Image = require('./controllers/Image')
 
 const app = express();
