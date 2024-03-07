@@ -1,13 +1,11 @@
-version: '24.0'
+version: '3.8'
 
 services: 
 
    # Backend API
    smart-brain-api: 
       container_name: backend
-      build: 
-        context: ./
-        dockerfile: Dockerfile
+      build: ./
       environment: 
        - POSTGRES_URI=postgres://souhani:123@postgres:5432/smart-brain-db-docker
        - REDIS_URI=redis://redis:6379
