@@ -1,4 +1,4 @@
-FROM node:18.18
+FROM public.ecr.aws/docker/library/node:18.18
 
 WORKDIR usr/src/smart-brain-api
 

@@ -1,35 +1,39 @@
 version: '3.8'
 
-services: 
+services:
+  # Backend API
+  smart-brain-api:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_URI=postgres://souhani:123@postgres:5432/smart-brain-db-docker
+      - REDIS_URI=redis://redis:6379
+    working_dir: /usr/src/smart-brain-api
+    ports:
+      - "3000:3000"  # Host:Container
+    stdin_open: true
+    tty: true
 
-   # Backend API
-   smart-brain-api: 
-      container_name: backend
-      build: ./
-      environment: 
-       - POSTGRES_URI=postgres://souhani:123@postgres:5432/smart-brain-db-docker
-       - REDIS_URI=redis://redis:6379
-      command: npm start
-      working_dir: /usr/src/smart-brain-api
-      ports:
-         - "3000:3000"  # Host:Container
-      volumes:
-         - ./:/usr/src/smart-brain-api
-   
-   # Postgres
-   postgres:
-      container_name: postgres-database
-      environment: 
-        - POSTGRES_USER=souhani
-        - POSTGRES_PASSWORD=123
-        - POSTGRES_DB=smart-brain-db-docker
-      build: ./postgres
-      ports:
-         - "5432:5432"
-      
-   # Redis
-   redis: 
-      container_name: redis-database
-      image: public.ecr.aws/docker/library/redis:7.2.4
-      ports:
-         - "6379:6379"
+  # Postgres
+  postgres:
+    container_name: postgres-database
+    environment:
+      - POSTGRES_USER=souhani
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=smart-brain-db-docker
+    build: ./postgres
+    ports:
+      - "5432:5432"
+
+  # Redis
+  redis:
+    container_name: redis-database
+    image: public.ecr.aws/docker/library/redis:latest
+    ports:
+      - "6379:6379"
+
+# Push the image to Amazon ECR using a separate script or manual steps.
+# Ensure you authenticate Docker to the ECR registry before running docker-compose.
+# For authentication details, refer to the AWS documentation.
