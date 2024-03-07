@@ -30,6 +30,6 @@ services:
    # Redis
    redis: 
       container_name: redis-database
-      image: redis
+      image: public.ecr.aws/docker/library/redis:7.2.4
       ports:
          - "6379:6379"
