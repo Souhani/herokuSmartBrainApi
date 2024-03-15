@@ -15,7 +15,7 @@ const auth = require('./controllers/authorization');
 // connect to postg database
 const postg = knex({
   client: 'pg',
-  connection: process.env.POSTGRES_URI
+  connection: process.env.DATABASE_URL
 });
 // connect to redis database
 (async () => await redisClient.connect())()

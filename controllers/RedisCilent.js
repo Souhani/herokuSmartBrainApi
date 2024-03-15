@@ -2,7 +2,7 @@ const redis = require("redis");
 
 // Create a new Redis client
 const client = redis.createClient({
-    url: process.env.REDIS_URI,
+    url: process.env.REDISCLOUD_URL,
 });
 
 // Handle connection events
